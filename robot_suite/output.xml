@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.10.4 on win32)" generated="20220504 16:55:42.888" rpa="false" schemaversion="3">
+<suite id="s1" name="Demo1 Suite" source="D:\robot_project\robot_suite\demo1_suite.robot">
+<test id="s1-t1" name="TC1" line="4">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Raghuram</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220504 16:55:42.922" endtime="20220504 16:55:42.922"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>robot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220504 16:55:42.922" endtime="20220504 16:55:42.923"/>
+</kw>
+<status status="PASS" starttime="20220504 16:55:42.921" endtime="20220504 16:55:42.923"/>
+</test>
+<test id="s1-t2" name="TC2" line="8">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Hello</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220504 16:55:42.924" endtime="20220504 16:55:42.924"/>
+</kw>
+<status status="PASS" starttime="20220504 16:55:42.924" endtime="20220504 16:55:42.925"/>
+</test>
+<test id="s1-t3" name="TC3" line="11">
+<kw name="Set Variable" library="BuiltIn">
+<var>${my_name}</var>
+<arg>Ram</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220504 16:55:42.926" level="INFO">${my_name} = Ram</msg>
+<status status="PASS" starttime="20220504 16:55:42.926" endtime="20220504 16:55:42.926"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${my_name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220504 16:55:42.927" endtime="20220504 16:55:42.927"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${my_name}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220504 16:55:42.928" level="INFO">Ram</msg>
+<status status="PASS" starttime="20220504 16:55:42.927" endtime="20220504 16:55:42.928"/>
+</kw>
+<status status="PASS" starttime="20220504 16:55:42.926" endtime="20220504 16:55:42.928"/>
+</test>
+<test id="s1-t4" name="TC4" line="16">
+<kw name="Set Variable" library="BuiltIn">
+<var>${radius}</var>
+<arg>10</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220504 16:55:42.929" level="INFO">${radius} = 10</msg>
+<status status="PASS" starttime="20220504 16:55:42.929" endtime="20220504 16:55:42.929"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${output}</var>
+<arg>3.14*${radius}*${radius}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220504 16:55:42.930" level="INFO">${output} = 314.0</msg>
+<status status="PASS" starttime="20220504 16:55:42.930" endtime="20220504 16:55:42.930"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${output}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220504 16:55:42.930" endtime="20220504 16:55:42.931"/>
+</kw>
+<status status="PASS" starttime="20220504 16:55:42.929" endtime="20220504 16:55:42.931"/>
+</test>
+<test id="s1-t5" name="TC5" line="21">
+<kw name="Set Variable" library="BuiltIn">
+<var>${base}</var>
+<arg>25</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220504 16:55:42.932" level="INFO">${base} = 25</msg>
+<status status="PASS" starttime="20220504 16:55:42.932" endtime="20220504 16:55:42.932"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${height}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220504 16:55:42.933" level="INFO">${height} = 1</msg>
+<status status="PASS" starttime="20220504 16:55:42.933" endtime="20220504 16:55:42.933"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${areaoftriangle}</var>
+<arg>${base}*${height}/2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220504 16:55:42.934" level="INFO">${areaoftriangle} = 12.5</msg>
+<status status="PASS" starttime="20220504 16:55:42.933" endtime="20220504 16:55:42.934"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${areaoftriangle}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220504 16:55:42.934" endtime="20220504 16:55:42.936"/>
+</kw>
+<status status="PASS" starttime="20220504 16:55:42.932" endtime="20220504 16:55:42.936"/>
+</test>
+<test id="s1-t6" name="TC6" line="27">
+<kw name="Set Variable" library="BuiltIn">
+<var>${base}</var>
+<arg>25</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220504 16:55:42.936" level="INFO">${base} = 25</msg>
+<status status="PASS" starttime="20220504 16:55:42.936" endtime="20220504 16:55:42.936"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${base1}</var>
+<arg>2.56</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220504 16:55:42.936" level="INFO">${base1} = 2.56</msg>
+<status status="PASS" starttime="20220504 16:55:42.936" endtime="20220504 16:55:42.936"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${height}</var>
+<arg>70</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20220504 16:55:42.936" level="INFO">${height} = 70</msg>
+<status status="PASS" starttime="20220504 16:55:42.936" endtime="20220504 16:55:42.936"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${areaoftrapezium}</var>
+<arg>(${base}+${base1})*${height}/2</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20220504 16:55:42.936" level="INFO">${areaoftrapezium} = 964.5999999999999</msg>
+<status status="PASS" starttime="20220504 16:55:42.936" endtime="20220504 16:55:42.936"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${areaoftrapezium}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220504 16:55:42.936" endtime="20220504 16:55:42.936"/>
+</kw>
+<status status="PASS" starttime="20220504 16:55:42.936" endtime="20220504 16:55:42.936"/>
+</test>
+<test id="s1-t7" name="TC7" line="34">
+<kw name="Get Current Date" library="DateTime">
+<var>${date}</var>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220504 16:55:42.936" level="INFO">${date} = 2022-05-04 16:55:42.936</msg>
+<status status="PASS" starttime="20220504 16:55:42.936" endtime="20220504 16:55:42.936"/>
+</kw>
+<status status="PASS" starttime="20220504 16:55:42.936" endtime="20220504 16:55:42.936"/>
+</test>
+<status status="PASS" starttime="20220504 16:55:42.888" endtime="20220504 16:55:42.936"/>
+</suite>
+<statistics>
+<total>
+<stat pass="7" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="7" fail="0" skip="0" id="s1" name="Demo1 Suite">Demo1 Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
