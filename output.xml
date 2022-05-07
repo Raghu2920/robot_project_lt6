@@ -1,72 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0 (Python 3.10.4 on win32)" generated="20220506 15:34:36.487" rpa="false" schemaversion="3">
-<suite id="s1" name="Demo8 Suite" source="D:\robot_project\selenium_suite\demo8_suite.robot">
-<test id="s1-t1" name="TC1" line="6">
-<kw name="Append To Environment Variable" library="OperatingSystem">
-<arg>path</arg>
-<arg>D:\\robot_project\\driver</arg>
-<doc>Appends given ``values`` to environment variable ``name``.</doc>
-<msg timestamp="20220506 15:34:36.750" level="INFO">Environment variable 'path' set to value 'C:\Program Files\Eclipse Adoptium\jdk-8.0.322.6-hotspot\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\dotnet\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Azure Data Studio\bin;C:\Users\raghu\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\raghu\AppData\Local\Programs\Python\Python310\;C:\Users\raghu\AppData\Local\Programs\Python\Python310;C:\Python\Scripts\;C:\Python\;C:\Users\raghu\AppData\Local\Microsoft\WindowsApps;C:\Users\raghu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\raghu\.dotnet\tools;C:\Program Files\Azure Data Studio\bin;C:\Program Files\CMake\bin;;D:\robot_project\driver'.</msg>
-<status status="PASS" starttime="20220506 15:34:36.750" endtime="20220506 15:34:36.750"/>
+<robot generator="Robot 5.0 (Python 3.10.4 on win32)" generated="20220507 11:19:32.340" rpa="false" schemaversion="3">
+<suite id="s1" name="Demo2" source="D:\robot_project\db_suite\demo2.robot">
+<test id="s1-t1" name="TC1" line="7">
+<kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
+<arg>dbapiModuleName=pymysql</arg>
+<arg>dbName=dbfree_db</arg>
+<arg>dbUsername=dbfree_db</arg>
+<arg>dbPassword=12345678</arg>
+<arg>dbHost=db4free.net</arg>
+<arg>dbPort=3306</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20220507 11:19:32.401" level="INFO">Connecting using : pymysql.connect(db=dbfree_db, user=dbfree_db, passwd=12345678, host=db4free.net, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20220507 11:19:32.370" endtime="20220507 11:19:33.338"/>
 </kw>
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>browser=chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220506 15:34:36.751" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
-<status status="PASS" starttime="20220506 15:34:36.751" endtime="20220506 15:34:38.492"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220506 15:34:38.492" endtime="20220506 15:34:38.647"/>
-</kw>
-<kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
-<arg>30s</arg>
-<doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="PASS" starttime="20220506 15:34:38.648" endtime="20220506 15:34:38.650"/>
-</kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>url=https://netbanking.hdfcbank.com/netbanking/IpinResetUsingOTP.htm</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220506 15:34:38.651" level="INFO">Opening url 'https://netbanking.hdfcbank.com/netbanking/IpinResetUsingOTP.htm'</msg>
-<status status="PASS" starttime="20220506 15:34:38.651" endtime="20220506 15:34:40.038"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>xpath=//a[@ondblclick='return fLogon()']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220506 15:34:40.041" level="INFO">Clicking element 'xpath=//a[@ondblclick='return fLogon()']'.</msg>
-<status status="PASS" starttime="20220506 15:34:40.040" endtime="20220506 15:34:40.195"/>
-</kw>
-<kw name="Handle Alert" library="SeleniumLibrary">
-<var>${alert_text}</var>
-<arg>action=ACCEPT</arg>
-<doc>Handles the current alert and returns its message.</doc>
-<msg timestamp="20220506 15:34:40.196" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<msg timestamp="20220506 15:34:40.203" level="INFO">${alert_text} = Customer ID  cannot be left blank.</msg>
-<status status="PASS" starttime="20220506 15:34:40.196" endtime="20220506 15:34:40.203"/>
+<kw name="Row Count" library="DatabaseLibrary">
+<var>${row_count}</var>
+<arg>select * from Products</arg>
+<doc>Uses the input `selectStatement` to query the database and returns the number of rows from the query. Set
+optional input `sansTran` to True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20220507 11:19:33.339" level="INFO">Executing : Row Count  |  select * from Products </msg>
+<msg timestamp="20220507 11:19:33.682" level="INFO">${row_count} = 81</msg>
+<status status="PASS" starttime="20220507 11:19:33.339" endtime="20220507 11:19:33.682"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>${alert_text}</arg>
+<arg>${row_count}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220506 15:34:40.204" endtime="20220506 15:34:40.205"/>
+<status status="PASS" starttime="20220507 11:19:33.683" endtime="20220507 11:19:33.683"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${alert_text}</arg>
+<arg>${row_count}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220506 15:34:40.206" level="INFO">Customer ID  cannot be left blank.</msg>
-<status status="PASS" starttime="20220506 15:34:40.206" endtime="20220506 15:34:40.206"/>
+<msg timestamp="20220507 11:19:33.684" level="INFO">81</msg>
+<status status="PASS" starttime="20220507 11:19:33.684" endtime="20220507 11:19:33.684"/>
 </kw>
-<status status="PASS" starttime="20220506 15:34:36.749" endtime="20220506 15:34:40.207"/>
+<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20220507 11:19:33.685" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20220507 11:19:33.685" endtime="20220507 11:19:33.685"/>
+</kw>
+<status status="PASS" starttime="20220507 11:19:32.369" endtime="20220507 11:19:33.685"/>
 </test>
-<status status="PASS" starttime="20220506 15:34:36.489" endtime="20220506 15:34:40.210"/>
+<test id="s1-t2" name="TC2" line="14">
+<kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
+<arg>dbapiModuleName=pymysql</arg>
+<arg>dbName=dbfree_db</arg>
+<arg>dbUsername=dbfree_db</arg>
+<arg>dbPassword=12345678</arg>
+<arg>dbHost=db4free.net</arg>
+<arg>dbPort=3306</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20220507 11:19:33.687" level="INFO">Connecting using : pymysql.connect(db=dbfree_db, user=dbfree_db, passwd=12345678, host=db4free.net, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20220507 11:19:33.687" endtime="20220507 11:19:34.595"/>
+</kw>
+<kw name="Table Must Exist" library="DatabaseLibrary">
+<arg>Products</arg>
+<doc>Check if the table given exists in the database. Set optional input `sansTran` to True to run command without an
+explicit transaction commit or rollback.</doc>
+<msg timestamp="20220507 11:19:34.595" level="INFO">Executing : Table Must Exist  |  Products </msg>
+<msg timestamp="20220507 11:19:34.595" level="INFO">Executing : Row Count  |  SELECT * FROM information_schema.tables WHERE table_name='Products' </msg>
+<status status="PASS" starttime="20220507 11:19:34.595" endtime="20220507 11:19:37.738"/>
+</kw>
+<kw name="Row Count Is Equal To X" library="DatabaseLibrary">
+<arg>select * from Products</arg>
+<arg>81</arg>
+<doc>Check if the number of rows returned from `selectStatement` is equal to the value submitted. If not, then this
+will throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit
+transaction commit or rollback.</doc>
+<msg timestamp="20220507 11:19:37.739" level="INFO">Executing : Row Count Is Equal To X  |  select * from Products  |  81 </msg>
+<msg timestamp="20220507 11:19:37.739" level="INFO">Executing : Row Count  |  select * from Products </msg>
+<status status="PASS" starttime="20220507 11:19:37.738" endtime="20220507 11:19:38.300"/>
+</kw>
+<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20220507 11:19:38.301" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20220507 11:19:38.301" endtime="20220507 11:19:38.301"/>
+</kw>
+<status status="PASS" starttime="20220507 11:19:33.686" endtime="20220507 11:19:38.302"/>
+</test>
+<status status="PASS" starttime="20220507 11:19:32.341" endtime="20220507 11:19:38.303"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Demo8 Suite">Demo8 Suite</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Demo2">Demo2</stat>
 </suite>
 </statistics>
 <errors>
