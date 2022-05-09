@@ -1,94 +1,153 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0 (Python 3.10.4 on win32)" generated="20220507 11:19:32.340" rpa="false" schemaversion="3">
-<suite id="s1" name="Demo2" source="D:\robot_project\db_suite\demo2.robot">
-<test id="s1-t1" name="TC1" line="7">
-<kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
-<arg>dbapiModuleName=pymysql</arg>
-<arg>dbName=dbfree_db</arg>
-<arg>dbUsername=dbfree_db</arg>
-<arg>dbPassword=12345678</arg>
-<arg>dbHost=db4free.net</arg>
-<arg>dbPort=3306</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20220507 11:19:32.401" level="INFO">Connecting using : pymysql.connect(db=dbfree_db, user=dbfree_db, passwd=12345678, host=db4free.net, port=3306, charset=None) </msg>
-<status status="PASS" starttime="20220507 11:19:32.370" endtime="20220507 11:19:33.338"/>
+<robot generator="Robot 5.0 (Python 3.10.4 on win32)" generated="20220509 14:24:53.944" rpa="false" schemaversion="3">
+<suite id="s1" name="Demo1" source="D:\robot_project\appium_suite\demo1.robot">
+<test id="s1-t1" name="TC1" line="5">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>remote_url=http://hub-cloud.browserstack.com/wd/hub</arg>
+<arg>browserstack.user=roninrey_hJtbdC</arg>
+<arg>browserstack.key=sD6nrxZ27MYqsUmEHjz4</arg>
+<arg>app=bs://59113956114e08fc158272cd1d24f0517d587719</arg>
+<arg>device=Google Pixel 3</arg>
+<arg>os_version=9.0</arg>
+<arg>project=lt6_project</arg>
+<arg>build=lt6_build</arg>
+<arg>name=Khanacademy test</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20220509 14:24:54.098" endtime="20220509 14:25:18.479"/>
 </kw>
-<kw name="Row Count" library="DatabaseLibrary">
-<var>${row_count}</var>
-<arg>select * from Products</arg>
-<doc>Uses the input `selectStatement` to query the database and returns the number of rows from the query. Set
-optional input `sansTran` to True to run command without an explicit transaction commit or rollback.</doc>
-<msg timestamp="20220507 11:19:33.339" level="INFO">Executing : Row Count  |  select * from Products </msg>
-<msg timestamp="20220507 11:19:33.682" level="INFO">${row_count} = 81</msg>
-<status status="PASS" starttime="20220507 11:19:33.339" endtime="20220507 11:19:33.682"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${row_count}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220507 11:19:33.683" endtime="20220507 11:19:33.683"/>
+<kw name="Get Source" library="AppiumLibrary">
+<var>${app_source}</var>
+<doc>Returns the entire source of the current page.</doc>
+<msg timestamp="20220509 14:25:19.120" level="INFO">${app_source} = &lt;?xml version='1.0' encoding='UTF-8' standalone='yes' ?&gt;
+&lt;hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="2028"&gt;
+  &lt;android.widget.FrameLayout index="0" package="org.khanacad...</msg>
+<status status="PASS" starttime="20220509 14:25:18.479" endtime="20220509 14:25:19.120"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${row_count}</arg>
+<arg>${app_source}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220507 11:19:33.684" level="INFO">81</msg>
-<status status="PASS" starttime="20220507 11:19:33.684" endtime="20220507 11:19:33.684"/>
+<msg timestamp="20220509 14:25:19.121" level="INFO">&lt;?xml version='1.0' encoding='UTF-8' standalone='yes' ?&gt;
+&lt;hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="2028"&gt;
+  &lt;android.widget.FrameLayout index="0" package="org.khanacademy.android" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,2028]" displayed="true"&gt;
+    &lt;android.widget.LinearLayout index="0" package="org.khanacademy.android" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,2028]" displayed="true"&gt;
+      &lt;android.widget.FrameLayout index="0" package="org.khanacademy.android" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,66][1080,2028]" displayed="true"&gt;
+        &lt;android.widget.FrameLayout index="0" package="org.khanacademy.android" class="android.widget.FrameLayout" text="" resource-id="org.khanacademy.android:id/action_bar_root" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,66][1080,2028]" displayed="true"&gt;
+          &lt;android.widget.FrameLayout index="0" package="org.khanacademy.android" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,66][1080,2028]" displayed="true"&gt;
+            &lt;android.widget.LinearLayout index="0" package="org.khanacademy.android" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,66][1080,2028]" displayed="true"&gt;
+              &lt;android.widget.FrameLayout index="0" package="org.khanacademy.android" class="android.widget.FrameLayout" text="" resource-id="org.khanacademy.android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,66][1080,1896]" displayed="true"&gt;
+                &lt;android.widget.FrameLayout index="0" package="org.khanacademy.android" class="android.widget.FrameLayout" text="" resource-id="org.khanacademy.android:id/content_root" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,66][1080,1896]" displayed="true"&gt;
+                  &lt;android.widget.FrameLayout index="0" package="org.khanacademy.android" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,66][1080,1896]" displayed="true" /&gt;
+                &lt;/android.widget.FrameLayout&gt;
+              &lt;/android.widget.FrameLayout&gt;
+              &lt;android.widget.LinearLayout index="1" package="org.khanacademy.android" class="android.widget.LinearLayout" text="" resource-id="org.khanacademy.android:id/tabs" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1896][1080,2028]" displayed="true"&gt;
+                &lt;android.widget.Button index="0" package="org.khanacademy.android" class="android.widget.Button" text="Home" content-desc="Explore tab" resource-id="org.khanacademy.android:id/tab_bar_button_home" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="true" bounds="[0,1907][360,2022]" displayed="true" /&gt;
+                &lt;android.widget.Button index="1" package="org.khanacademy.android" class="android.widget.Button" text="Search" content-desc="Search tab" resource-id="org.khanacademy.android:id/tab_bar_button_search" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[360,1907][720,2022]" displayed="true" /&gt;
+                &lt;android.widget.Button index="2" package="org.khanacademy.android" class="android.widget.Button" text="Bookmarks" content-desc="Bookmarks tab" resource-id="org.khanacademy.android:id/tab_bar_button_bookmarks" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[720,1907][1080,2022]" displayed="true" /&gt;
+              &lt;/android.widget.LinearLayout&gt;
+            &lt;/android.widget.LinearLayout&gt;
+          &lt;/android.widget.FrameLayout&gt;
+        &lt;/android.widget.FrameLayout&gt;
+      &lt;/android.widget.FrameLayout&gt;
+    &lt;/android.widget.LinearLayout&gt;
+  &lt;/android.widget.FrameLayout&gt;
+&lt;/hierarchy&gt;</msg>
+<status status="PASS" starttime="20220509 14:25:19.121" endtime="20220509 14:25:19.121"/>
 </kw>
-<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
-<doc>Disconnects from the database.</doc>
-<msg timestamp="20220507 11:19:33.685" level="INFO">Executing : Disconnect From Database</msg>
-<status status="PASS" starttime="20220507 11:19:33.685" endtime="20220507 11:19:33.685"/>
+<kw name="Set Appium Timeout" library="AppiumLibrary">
+<arg>30s</arg>
+<doc>Sets the timeout in seconds used by various keywords.</doc>
+<status status="PASS" starttime="20220509 14:25:19.121" endtime="20220509 14:25:19.122"/>
 </kw>
-<status status="PASS" starttime="20220507 11:19:32.369" endtime="20220507 11:19:33.685"/>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>xpath=//*[@text='Dismiss']</arg>
+<arg>30s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20220509 14:25:19.122" endtime="20220509 14:25:22.201"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>xpath=//*[@text='Dismiss']</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220509 14:25:22.203" level="INFO">Clicking element 'xpath=//*[@text='Dismiss']'.</msg>
+<status status="PASS" starttime="20220509 14:25:22.202" endtime="20220509 14:25:22.735"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>xpath=//*[@text='Sign in']</arg>
+<arg>30s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20220509 14:25:22.735" endtime="20220509 14:25:23.599"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>xpath=//*[@text='Sign in']</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220509 14:25:23.602" level="INFO">Clicking element 'xpath=//*[@text='Sign in']'.</msg>
+<status status="PASS" starttime="20220509 14:25:23.600" endtime="20220509 14:25:24.169"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>xpath=//*[@text='Sign in']</arg>
+<arg>30s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20220509 14:25:24.169" endtime="20220509 14:25:24.988"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>xpath=//*[@text='Sign in']</arg>
+<doc>Click element identified by `locator`.</doc>
+<msg timestamp="20220509 14:25:24.989" level="INFO">Clicking element 'xpath=//*[@text='Sign in']'.</msg>
+<status status="PASS" starttime="20220509 14:25:24.988" endtime="20220509 14:25:25.355"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="AppiumLibrary">
+<arg>xpath=//*[@text='Enter an e-mail address or username']</arg>
+<arg>50s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" starttime="20220509 14:25:25.355" endtime="20220509 14:25:26.160"/>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>xpath=//*[@text='Enter an e-mail address or username']</arg>
+<arg>hello@gmail.com</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20220509 14:25:26.162" level="INFO">Typing text 'hello@gmail.com' into text field 'xpath=//*[@text='Enter an e-mail address or username']'</msg>
+<status status="PASS" starttime="20220509 14:25:26.160" endtime="20220509 14:25:26.551"/>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>xpath=//*[contains@text,'Pass')]</arg>
+<arg>hello123</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<msg timestamp="20220509 14:25:26.552" level="INFO">Typing text 'hello123' into text field 'xpath=//*[contains@text,'Pass')]'</msg>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220509 14:25:27.959" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220509 14:25:27.117" endtime="20220509 14:25:27.960"/>
+</kw>
+<msg timestamp="20220509 14:25:27.960" level="FAIL">InvalidSelectorException: Message: Appium error: java.lang.IllegalArgumentException: Unable to compile '//*[contains@text,'Pass')]'. See Cause.
+</msg>
+<status status="FAIL" starttime="20220509 14:25:26.551" endtime="20220509 14:25:27.961"/>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<arg>xpath=(//*[@text='Sign in'])[2]</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="NOT RUN" starttime="20220509 14:25:27.962" endtime="20220509 14:25:27.962"/>
+</kw>
+<kw name="Close Application" library="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="NOT RUN" starttime="20220509 14:25:27.962" endtime="20220509 14:25:27.963"/>
+</kw>
+<status status="FAIL" starttime="20220509 14:24:54.098" endtime="20220509 14:25:27.963">InvalidSelectorException: Message: Appium error: java.lang.IllegalArgumentException: Unable to compile '//*[contains@text,'Pass')]'. See Cause.
+</status>
 </test>
-<test id="s1-t2" name="TC2" line="14">
-<kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
-<arg>dbapiModuleName=pymysql</arg>
-<arg>dbName=dbfree_db</arg>
-<arg>dbUsername=dbfree_db</arg>
-<arg>dbPassword=12345678</arg>
-<arg>dbHost=db4free.net</arg>
-<arg>dbPort=3306</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20220507 11:19:33.687" level="INFO">Connecting using : pymysql.connect(db=dbfree_db, user=dbfree_db, passwd=12345678, host=db4free.net, port=3306, charset=None) </msg>
-<status status="PASS" starttime="20220507 11:19:33.687" endtime="20220507 11:19:34.595"/>
-</kw>
-<kw name="Table Must Exist" library="DatabaseLibrary">
-<arg>Products</arg>
-<doc>Check if the table given exists in the database. Set optional input `sansTran` to True to run command without an
-explicit transaction commit or rollback.</doc>
-<msg timestamp="20220507 11:19:34.595" level="INFO">Executing : Table Must Exist  |  Products </msg>
-<msg timestamp="20220507 11:19:34.595" level="INFO">Executing : Row Count  |  SELECT * FROM information_schema.tables WHERE table_name='Products' </msg>
-<status status="PASS" starttime="20220507 11:19:34.595" endtime="20220507 11:19:37.738"/>
-</kw>
-<kw name="Row Count Is Equal To X" library="DatabaseLibrary">
-<arg>select * from Products</arg>
-<arg>81</arg>
-<doc>Check if the number of rows returned from `selectStatement` is equal to the value submitted. If not, then this
-will throw an AssertionError. Set optional input `sansTran` to True to run command without an explicit
-transaction commit or rollback.</doc>
-<msg timestamp="20220507 11:19:37.739" level="INFO">Executing : Row Count Is Equal To X  |  select * from Products  |  81 </msg>
-<msg timestamp="20220507 11:19:37.739" level="INFO">Executing : Row Count  |  select * from Products </msg>
-<status status="PASS" starttime="20220507 11:19:37.738" endtime="20220507 11:19:38.300"/>
-</kw>
-<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
-<doc>Disconnects from the database.</doc>
-<msg timestamp="20220507 11:19:38.301" level="INFO">Executing : Disconnect From Database</msg>
-<status status="PASS" starttime="20220507 11:19:38.301" endtime="20220507 11:19:38.301"/>
-</kw>
-<status status="PASS" starttime="20220507 11:19:33.686" endtime="20220507 11:19:38.302"/>
-</test>
-<status status="PASS" starttime="20220507 11:19:32.341" endtime="20220507 11:19:38.303"/>
+<status status="FAIL" starttime="20220509 14:24:53.945" endtime="20220509 14:25:27.965"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="0" skip="0" id="s1" name="Demo2">Demo2</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Demo1">Demo1</stat>
 </suite>
 </statistics>
 <errors>
